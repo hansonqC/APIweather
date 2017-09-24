@@ -28,6 +28,22 @@
                 </configuration>
 
             </plugin>
+            <plugin>
+                <groupId>
+                    org.apache.maven.plugins
+                </groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manieft>
+                            <mainClass>pl.hansonq.Main</mainClass>
+                        </manieft>
+                    </archive>
+                    <descriptorRef>
+                        jar-with-dependencies
+                    </descriptorRef>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 <dependencies>
