@@ -1,13 +1,18 @@
 package pl.hansonq.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
 import pl.hansonq.models.IWeatherObserver;
 import pl.hansonq.models.WeatherInfo;
 import pl.hansonq.models.services.WeatherService;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,7 +22,7 @@ public class Controller implements Initializable,IWeatherObserver{
     private WeatherService weatherService = WeatherService.getService();
 
     @FXML
-    Button buttonSend;
+    Button buttonSend,buttonCharts;
 
 
     @FXML
@@ -53,7 +58,19 @@ public class Controller implements Initializable,IWeatherObserver{
             }
         }));
 
+                buttonCharts.setOnMouseClicked(e-> goToCharts());
+    }
 
+    private void goToCharts() {
+        Stage stage = (Stage) buttonCharts.getScene().getWindow();
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("chartView.fxml"));
+            stage.setScene(new Scene(root,600,400));
+            stage.setTitle("Wykres temperatury");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
