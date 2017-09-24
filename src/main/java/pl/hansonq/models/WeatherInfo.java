@@ -8,13 +8,22 @@ public class WeatherInfo {
     private int pressure;
     private int visibility;
     private int humidity;
+    private String cityName;
 
+    public String getCityName() {
+        return cityName;
+    }
 
-    public WeatherInfo(double temp, int pressure, int visibility, int humidity) {
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public WeatherInfo(double temp, int pressure, int visibility, int humidity, String cityName) {
         this.temp = temp;
         this.pressure = pressure;
         this.visibility = visibility;
         this.humidity = humidity;
+        this.cityName = cityName;
     }
 
     public int getVisibility() {

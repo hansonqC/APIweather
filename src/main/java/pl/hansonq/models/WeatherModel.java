@@ -15,6 +15,12 @@ public class WeatherModel {
         this.temp = temp;
         this.date = date;
     }
+    public WeatherModel(WeatherInfo info){
+        this.cityname= info.getCityName();
+        this.temp = (float) info.getTemp();
+        this.date = new Date(0);
+
+    }
 
     public String getCityname() {
         return cityname;

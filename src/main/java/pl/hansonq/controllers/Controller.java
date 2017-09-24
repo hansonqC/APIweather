@@ -10,6 +10,8 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import pl.hansonq.models.IWeatherObserver;
 import pl.hansonq.models.WeatherInfo;
+import pl.hansonq.models.dao.WeatherDao;
+import pl.hansonq.models.dao.impl.WeatherDaoImpl;
 import pl.hansonq.models.services.WeatherService;
 
 import java.io.IOException;
@@ -32,7 +34,7 @@ public class Controller implements Initializable,IWeatherObserver{
     TextField textCity;
   @FXML
   ProgressIndicator progressIndicator;
-
+    private WeatherDao weatherDao=new WeatherDaoImpl();
     public void initialize(URL location, ResourceBundle resources) {
         progressIndicator.setVisible(false);
         textWeather.setVisible(false);
@@ -80,6 +82,7 @@ public class Controller implements Initializable,IWeatherObserver{
                 "Widoczność :"+info.getVisibility()+ " | Wilgotność : "+info.getHumidity());
         progressIndicator.setVisible(false);
         textWeather.setVisible(true);
+        weatherDao.addWeather();
     }
 
 
