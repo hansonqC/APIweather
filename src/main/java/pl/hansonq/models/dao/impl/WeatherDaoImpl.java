@@ -61,10 +61,30 @@ public class WeatherDaoImpl implements WeatherDao {
             e.printStackTrace();
 
         }
+        return null;
     }
 
     @Override
     public List<String> getCities() {
+        List<String> cityNames = new ArrayList<>();
+        try (PreparedStatement preparedStatement = connector.getConnection().prepareStatement(  // try catch resources
+                "SELECT cityname FROM weather "))
+
+        {
+
+
+
+            ResultSet set = preparedStatement.executeQuery();
+
+            while (set.next()) {
+               cityNames.add(set.getString("cityname"));
+
+            }
+            return cityNames;
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
         return null;
     }
 }
