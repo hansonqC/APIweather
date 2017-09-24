@@ -6,7 +6,7 @@ package pl.hansonq.models;
 public class WeatherInfo {
     private double temp;
     private int pressure;
-    private int visibility;
+
     private int humidity;
     private String cityName;
 
@@ -18,22 +18,15 @@ public class WeatherInfo {
         this.cityName = cityName;
     }
 
-    public WeatherInfo(double temp, int pressure, int visibility, int humidity, String cityName) {
+    public WeatherInfo(double temp, int pressure, int humidity, String cityName) {
         this.temp = temp;
         this.pressure = pressure;
-        this.visibility = visibility;
+
         this.humidity = humidity;
         this.cityName = cityName;
     }
 
-    public int getVisibility() {
-        return visibility;
-    }
 
-    public void setVisibility(int visibility) {
-        this.visibility = visibility;
-
-    }
 
     public int getHumidity() {
         return humidity;

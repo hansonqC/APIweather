@@ -47,7 +47,7 @@ public class WeatherService {
         JSONObject root = new JSONObject(json);
         JSONObject main = root.getJSONObject("main");
 
-        int visibility = root.getInt("visibility");
+
         int humidity = main.getInt("humidity");
         int pressure = main.getInt("pressure");
         double temp = main.getDouble("temp");
@@ -55,7 +55,7 @@ public class WeatherService {
 
         observer.forEach(s -> {
 
-            Platform.runLater(() -> s.onWeatherUpdate(new WeatherInfo(temp, pressure, visibility, humidity,cityname)));
+            Platform.runLater(() -> s.onWeatherUpdate(new WeatherInfo(temp, pressure, humidity,cityname)));
         });
 
 

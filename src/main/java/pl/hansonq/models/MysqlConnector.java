@@ -9,7 +9,7 @@ import java.sql.SQLException;
  */
 public class MysqlConnector {
 
-    private static  final String SQL_LINK = "jdbc:mysql://5.135.218.27:3306/hansonq";
+    private static  final String SQL_LINK = "jdbc:mysql://5.135.218.27:3306/hansonq?useUnicode=true&characterEncoding=UTF-8";
     private static  final String SQL_USER = "hansonq";
     private static  final String SQL_PASS = "Komornik12";
     private static  final String SQL_CLASS = "com.mysql.jdbc.Driver";

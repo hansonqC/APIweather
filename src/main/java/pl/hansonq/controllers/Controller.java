@@ -10,6 +10,7 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import pl.hansonq.models.IWeatherObserver;
 import pl.hansonq.models.WeatherInfo;
+import pl.hansonq.models.WeatherModel;
 import pl.hansonq.models.dao.WeatherDao;
 import pl.hansonq.models.dao.impl.WeatherDaoImpl;
 import pl.hansonq.models.services.WeatherService;
@@ -78,11 +79,10 @@ public class Controller implements Initializable,IWeatherObserver{
     @Override
     public void onWeatherUpdate(WeatherInfo info) {
 
-        textWeather.setText("Temp: " + info.getTemp() + " | Cisnienie: " + info.getPressure()+ "\n" +
-                "Widoczność :"+info.getVisibility()+ " | Wilgotność : "+info.getHumidity());
+        textWeather.setText("Temp: " + info.getTemp() + " | Cisnienie: " + info.getPressure()+ " | Wilgotność : "+info.getHumidity());
         progressIndicator.setVisible(false);
         textWeather.setVisible(true);
-        weatherDao.addWeather();
+        weatherDao.addWeather(new WeatherModel(info));
     }
 
 
