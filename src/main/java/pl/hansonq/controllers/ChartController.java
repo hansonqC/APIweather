@@ -38,7 +38,7 @@ public class ChartController implements Initializable {
             cityObservableList = FXCollections.observableList(weatherDao.getCities());
             listCities.setItems(cityObservableList);
 
-            listCities.getSelectionModel().selectedItemProperty().addListener(observable, oldValue, newValue)->generateChart(newValue);
+
     }
 
     private void generateChart(String cityname) {
@@ -46,7 +46,7 @@ public class ChartController implements Initializable {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName(cityname);
         for(WeatherModel weatherModel : weatheList){
-            series.getData().add(new XYChart.Data<>(weatherModel.getDate().toString(), weatherModel.getTemp()));
+            series.getData().add(new XYChart.Data<>(weatherModel.getDate().toString(), weatherModel.getTemp()-273.15));
         }
             chartTemp.getData().clear();
                 chartTemp.getData().add(series);
